@@ -32,11 +32,4 @@ public class AccountController : ControllerBase
         if (user == null) return BadRequest();
         return Ok(user);
     }
-
-    [Route("login")]
-    [HttpPost]
-    public IActionResult Login(UserLoginRequestModel model)
-    {
-        return NotFound(new {error = "not found"});
-    }
 }
