@@ -10,14 +10,14 @@ namespace MovieShopAPI.Controllers;
 public class AccountController : ControllerBase
 {
     private IAccountService _accountService;
-    
+
     // GET
     public AccountController(IAccountService accountService)
     {
         _accountService = accountService;
     }
 
-    
+
     [Route("register")]
     [HttpPost]
     public async Task<IActionResult> Register(UserRegisterRequestModel model)
@@ -27,9 +27,16 @@ public class AccountController : ControllerBase
         {
             return BadRequest(model);
         }
+
         var user = await _accountService.CreateUser(model);
         if (user == null) return BadRequest();
         return Ok(user);
     }
-    
+
+    [Route("login")]
+    [HttpPost]
+    public IActionResult Login(UserLoginRequestModel model)
+    {
+        return NotFound(new {error = "not found"});
+    }
 }
