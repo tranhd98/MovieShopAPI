@@ -13,7 +13,8 @@ public class UserRepository: EfRepository<User>, IUserRepository
 
     public async Task<User> GetUserByEmails(string email)
     {
-        var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        var user = await _dbContext.Users.Include(u=> u.Roles).ThenInclude(ur => ur.Role)
+            .FirstOrDefaultAsync(u => u.Email == email);
 
         return user;
     }

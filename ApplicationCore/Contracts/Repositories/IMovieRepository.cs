@@ -11,5 +11,6 @@ public interface IMovieRepository: IRespository<Movie>
     Task<PagedResultSet<Movie>> GetAllMovies(int pageSize = 30, int pageNumber = 1);
     Task<IEnumerable<Movie>> GetTop30RatingMovies();
 
+    Task<IEnumerable<Movie>> GetTopPurchasesMovies(DateTime startDate, DateTime endDate);
     Task<IEnumerable<Review>> GetReviews(int id, int pageSize = 30, int pageNumber = 1);
 }

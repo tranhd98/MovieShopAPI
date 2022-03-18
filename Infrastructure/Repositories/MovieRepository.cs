@@ -73,6 +73,26 @@ public class MovieRepository: EfRepository<Movie>, IMovieRepository
         return movies;
     }
 
+    public async Task<IEnumerable<Movie>> GetTopPurchasesMovies(DateTime startDate, DateTime endDate)
+    {
+        var purchase = await _dbContext.Purchases
+            .Where(p => p.PurchaseDateTime >= startDate && p.PurchaseDateTime <= endDate)
+            .GroupBy(p => new {Id = p.MovieId})
+            .Select(g => new
+            {
+                Count = g.Count(),
+                ID = g.Key.Id
+            })
+            .OrderByDescending(g => g.Count).ToListAsync();
+        var movies = new List<Movie>();
+        foreach (var p in purchase)
+        {
+            movies.Add(await GetById(p.ID));
+        }
+
+        return movies;
+    }
+
     public async Task<IEnumerable<Review>> GetReviews(int id, int pageSize = 30, int pageNumber = 1)
     {
         var reviews = await _dbContext.Reviews.Where(r => r.MovieId == id)

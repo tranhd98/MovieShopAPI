@@ -7,5 +7,5 @@ public class LoginResponse
     public string LastName { get; set; }
     public DateTime DateOfBirth { get; set; }
     public string Email { get; set; }
-    public List<string> Roles { get; set; }
+    public List<RoleModel> Roles { get; set; }
 }

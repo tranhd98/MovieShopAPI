@@ -42,7 +42,7 @@ public class MovieService: IMovieService
             Revenue = movie.Revenue, Tagline = movie.Tagline,
             Title = movie.Title, ImdbUrl = movie.ImdbUrl, RunTime = movie.RunTime, BackdropUrl = movie.BackdropUrl,
             PosterUrl = movie.PosterUrl,
-            ReleaseDate = movie.ReleaseDate, TmdbUrl = movie.TmdbUrl
+            ReleaseDate = movie.ReleaseDate, TmdbUrl = movie.TmdbUrl, OriginalLanguage = movie.OriginalLanguage
         };
         
         

@@ -297,3 +297,4 @@
 /Users/hungtran/RiderProjects/MovieShopAPI/MovieShopAPI/obj/Debug/net6.0/MovieShopAPI.pdb
 /Users/hungtran/RiderProjects/MovieShopAPI/MovieShopAPI/obj/Debug/net6.0/MovieShopAPI.genruntimeconfig.cache
 /Users/hungtran/RiderProjects/MovieShopAPI/MovieShopAPI/obj/Debug/net6.0/ref/MovieShopAPI.dll
+/Users/hungtran/RiderProjects/MovieShopAPI/MovieShopAPI/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll

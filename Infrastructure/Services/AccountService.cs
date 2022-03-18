@@ -35,7 +35,12 @@ public class AccountService : IAccountService
             Id = user.Id,
             DateOfBirth = user.DateOfBirth.GetValueOrDefault(),
             FirstName = user.FirstName,
-            LastName = user.LastName
+            LastName = user.LastName,
+            Roles = user.Roles.Select(r => new RoleModel
+            {
+                Id = r.Role.Id,
+                Name = r.Role.Name
+            }).ToList()
         };
         return userLoginResponse;
     }
